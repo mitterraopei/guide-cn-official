@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 稳定入口与页面说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f7fa;
+      color: #1a2f3b;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2.4rem 1.5rem 3.2rem;
+    }
+    /* 简洁网格卡片氛围 */
+    .grid-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(24, 144, 143, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 144, 143, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .content { position: relative; z-index: 1; }
+
+    /* 文章标题 · 简洁博客风 */
+    .article-header {
+      margin-bottom: 2.8rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #c7dbe3;
+    }
+    .article-header h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #083f4a;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .article-header .lead {
+      font-size: 1.15rem;
+      color: #3c6a7a;
+      background: #eaf1f5;
+      display: inline-block;
+      padding: 0.25rem 1rem 0.3rem;
+      border-radius: 32px;
+      font-weight: 450;
+      margin-top: 0.4rem;
+    }
+
+    /* 正文段落 */
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    a {
+      color: #087b8c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(8, 123, 140, 0.25);
+      transition: border-color 0.2s, background 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #087b8c;
+      background: rgba(8, 123, 140, 0.06);
+    }
+
+    /* 引用提示块 */
+    .insight-card {
+      background: #ffffff;
+      border-left: 5px solid #2aa5af;
+      box-shadow: 0 4px 14px rgba(0, 40, 50, 0.04);
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 2.2rem;
+      border-radius: 0 18px 18px 0;
+      font-style: normal;
+    }
+    .insight-card strong {
+      color: #0f5c66;
+      display: block;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.6rem;
+    }
+    .insight-card p {
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+
+    /* 两个小卡片 (特点/场景) 网格 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.6rem 0 2.2rem;
+    }
+    .grid-card {
+      background: #ffffff;
+      padding: 1.6rem 1.4rem;
+      border-radius: 22px;
+      box-shadow: 0 2px 8px rgba(0, 50, 60, 0.04);
+      border: 1px solid #ddeaf0;
+      transition: transform 0.1s ease;
+    }
+    .grid-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #125d69;
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #b7d6de;
+      display: inline-block;
+    }
+    .grid-card p {
+      font-size: 0.98rem;
+      color: #244f5b;
+      margin-bottom: 0;
+    }
+
+    /* FAQ摘要 (简洁) */
+    .faq-mini {
+      background: #e7f2f6;
+      border-radius: 30px;
+      padding: 1.5rem 2rem;
+      margin: 2.2rem 0 2rem;
+    }
+    .faq-mini h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0a535f;
+      margin-bottom: 0.6rem;
+    }
+    .faq-mini ul {
+      list-style: none;
+      padding: 0;
+    }
+    .faq-mini li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(8, 91, 102, 0.08);
+      display: flex;
+      gap: 0.6rem;
+    }
+    .faq-mini li:last-child { border: none; }
+    .faq-q {
+      font-weight: 500;
+      color: #105e6a;
+      min-width: 70px;
+    }
+    .faq-a {
+      color: #1f4a54;
+    }
+
+    /* 访问句 简洁 */
+    .visit-note {
+      text-align: right;
+      font-size: 0.95rem;
+      color: #3e6d79;
+      margin-top: 2.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #cbdce3;
+    }
+
+    /* 移动端调整 */
+    @media (max-width: 600px) {
+      .container { padding: 1.8rem 1.2rem 2.4rem; }
+      .article-header h1 { font-size: 1.7rem; }
+      .grid-cards { grid-template-columns: 1fr; gap: 1.2rem; }
+      .insight-card { padding: 1.2rem 1.2rem; }
+      .faq-mini { padding: 1.2rem 1.2rem; }
+      p { font-size: 1rem; }
+      .grid-card h3 { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="container content">
+
+    <!-- 博客式文章头部 -->
+    <header class="article-header">
+      <h1>稳定入口 · 页面说明</h1>
+      <div class="lead">从访问到浏览：一种克制的导航方式</div>
+    </header>
+
+    <!-- 正文 多段 -->
+    <p>
+      对于经常使用在线游戏服务的用户，一个可依赖的访问路径往往比功能堆砌更重要。页面本身不制造冗余，而是作为信息载体，协助用户快速定位核心站点。<a href="https://mainonline-igame.com">爱游戏</a>在设计之初即采用轻量级结构，将入口稳定性放在首位，同时保持对各类终端的适配。无论使用桌面浏览器还是移动设备，布局均能根据视口自动调整，避免缩放错位或元素溢出。
+    </p>
+
+    <p>
+      从信息架构角度看，本页属于「导航说明型」页面——不承载实际游戏内容，而是阐明站点定位与访问方式。所有链接均经过可访问性检查，确保键盘和屏幕阅读器可以正常聚焦。文字呈现方面，蓝绿色点缀用于区分交互元素，网格卡片则强化内容的模块感，减少视觉噪声。
+    </p>
+
+    <!-- 引用提示块 (风格类似博客中的引用/提示) -->
+    <div class="insight-card">
+      <strong>⏺ 阅读提示</strong>
+      <p>
+        下方卡片总结了两类使用场景与常见疑问摘要。如需直接访问主站，请点击段落中的「爱游戏」链接，或使用浏览器书签功能保存地址。<br>
+        页面不会记录任何个人偏好，亦不加载外部脚本。
+      </p>
+    </div>
+
+    <!-- 双卡片：特点 + 场景 (差异化) -->
+    <div class="grid-cards">
+      <div class="grid-card">
+        <h3>📌 结构特点</h3>
+        <p>
+          采用单栏文章式布局，避免复杂导航条。关键链接以自然方式融入正文，减少刻意引导。蓝绿色强调交互元素，但整体保持低饱和度，适宜长时间阅读。
+        </p>
+      </div>
+      <div class="grid-card">
+        <h3>📌 应用场景</h3>
+        <p>
+          适合作为团队内部或社区分享的「固定入口页」；也适合首次接触平台的用户快速了解访问方式。页面内容稳定，不依赖动态数据。
+        </p>
+      </div>
+    </div>
+
+    <!-- 正文继续 -->
+    <p>
+      考虑到部分用户可能会反复进入该页面，内容组织上刻意避免了大段雷同介绍。每段文字都围绕同一个核心——让访问路径清晰可循。如果你偶尔需要确认站点地址，可以直接引用页面中出现的 <a href="https://mainonline-igame.com">爱游戏</a> 链接，无需额外搜索。为兼顾不同网络环境，页面体积控制在极小范围，纯 HTML + CSS 实现，无第三方资源。
+    </p>
+
+    <!-- FAQ 摘要 (简洁 · 非完整) -->
+    <div class="faq-mini">
+      <h4>❓ 常见问题摘要</h4>
+      <ul>
+        <li><span class="faq-q">页面用途</span><span class="faq-a">解释访问方式与结构，不包含游戏内容</span></li>
+        <li><span class="faq-q">链接安全</span><span class="faq-a">全部指向主站 https，无中间跳转</span></li>
+        <li><span class="faq-q">移动适配</span><span class="faq-a">响应式网格，支持横竖屏</span></li>
+        <li><span class="faq-q">内容更新</span><span class="faq-a">静态页面，不定期调整描述细节</span></li>
+      </ul>
+    </div>
+
+    <p>
+      我们不主张在页面内堆积特性列表或夸大宣传。一个可靠的入口，它的价值恰恰在于「简单且稳定」。如果你认同这种设计思路，可以直接将本页设为书签，或者将 <a href="https://mainonline-igame.com">爱游戏</a> 收录到常用导航栏。以后需要时，随时可以通过这个页面确认地址、了解布局。
+    </p>
+
+    <!-- 访问句 (收束) -->
+    <div class="visit-note">
+      — 页面说明 · 保持简洁
+    </div>
+
+  </div>
+</body>
+</html>
