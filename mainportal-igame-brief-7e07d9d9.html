@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f3eb; /* 米白基调 */
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2c2c2c;
+            line-height: 1.8;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fefcf6;
+            padding: 2.8rem 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 2rem 1.4rem;
+                border-radius: 24px;
+            }
+        }
+
+        /* 文章标题 */
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3d2e1e;
+            border-left: 4px solid #b8936a;
+            padding-left: 1.2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #7b6b5a;
+            margin-bottom: 2.2rem;
+            padding-left: 1.6rem;
+            font-style: italic;
+            border-bottom: 1px dashed #ddd2c0;
+            padding-bottom: 0.6rem;
+        }
+
+        /* 导语 */
+        .lead {
+            font-size: 1.1rem;
+            background: #f2ece2;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            color: #3f3324;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .lead p {
+            margin: 0;
+        }
+
+        /* 正文段落 */
+        article p {
+            margin-bottom: 1.4rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        /* 引用块 / 提示框 */
+        .quote-box {
+            background: #f3ede4;
+            border-left: 6px solid #b8936a;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0;
+            border-radius: 0 20px 20px 0;
+            font-style: normal;
+            color: #4b3d2e;
+        }
+
+        .quote-box strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #5f4c35;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .tip-box {
+            background: #e8e0d3;
+            border-radius: 24px;
+            padding: 1.3rem 1.6rem;
+            margin: 2rem 0 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .tip-box::before {
+            content: "☕";
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-top: 0.1rem;
+        }
+
+        .tip-content {
+            flex: 1;
+        }
+
+        .tip-content p {
+            margin-bottom: 0.3rem;
+        }
+
+        .tip-content small {
+            color: #6b5c4a;
+            font-size: 0.85rem;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #735c3f;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c2ab;
+            transition: border-color 0.2s, color 0.2s;
+            padding: 0 1px;
+        }
+
+        a:hover {
+            color: #4f3d28;
+            border-bottom-color: #735c3f;
+        }
+
+        /* 分隔线 & 脚注 */
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd0bd, transparent);
+            margin: 2.4rem 0 1.6rem;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #7d6f5c;
+            text-align: center;
+            margin-top: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note span {
+            background: #f2ece2;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+        }
+
+        /* 随手标注 */
+        .inline-tag {
+            background: #ede5d9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #5f4e38;
+        }
+
+        /* 小屏幕调整 */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+                padding-left: 0.8rem;
+            }
+            .lead {
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>日常查询·对照·延伸阅读</h1>
+    <div class="subhead">从搜索到理解，一篇温和的笔记</div>
+
+    <!-- 导语 -->
+    <div class="lead">
+        <p>整理碎片信息时，常需要回到一个朴素的起点：打开某个平台，查一查名字，看一看布局，再比对自己记忆中的版本。<br>
+        今天要聊的，是日常查询中总是绕不开的——<strong>爱游戏</strong>。</p>
+    </div>
+
+    <!-- 正文开始 -->
+    <article>
+        <p>过去几年，电子游戏的资讯与社区逐渐分散。论坛、评测站、数据平台各司其职，但当你只是想知道一款游戏的基本信息、更新动态或玩家讨论时，反而常常要在多个页面之间来回跳转。一个聚合了基本索引与话题的站点，就成了习惯性访问的起点。</p>
+
+        <p>很多人把 <a href="https://mainportal-igame.com">爱游戏</a> 当作这样的入口。它不像某些大型门户那样堆满横幅与弹窗，也不像垂直社群那样需要注册才能阅读——它更像一个静置在收藏夹里的文件夹，打开之后，列表清晰，链接直接，没有多余的心理负担。</p>
+
+        <div class="quote-box">
+            <strong>📌 一位使用者的原话</strong>
+            “其实没什么特别花哨的功能，就是每天点开看看有没有新收录的游戏条目，偶尔翻翻老游戏的评论区。不知不觉养成了习惯。”
+        </div>
+
+        <p>这种习惯并非孤例。从日常查询的角度看，一个站点如果能同时满足三类需求，就很容易被保留：快速检索已知游戏、发现未被关注的作品、以及对比不同版本或平台的差异。<strong>爱游戏</strong> 在索引结构上采用了分类与标签并行的方式，既保留了传统的字母/热度排列，也加入了自定义标签集合，方便横向对照。</p>
+
+        <p>延伸阅读的价值往往藏在这些标签里。比如你搜索一款 2023 年的独立游戏，页面下方可能会关联几款风格相似但年份更早的作品，或者一篇玩家撰写的玩法拆解。这种非算法推荐、而是由编辑或社区主动整理的关联，反而更有“翻阅杂志”的质感。</p>
+
+        <div class="tip-box">
+            <div class="tip-content">
+                <p><strong>提示：</strong> 如果你也在寻找一个没有信息茧房味道的查询起点，可以试试把 <a href="https://mainportal-igame.com">爱游戏</a> 放进书签。它不追踪你的偏好，也不会强行推送热门内容。</p>
+                <small>适合对照、补遗、纯粹浏览。</small>
+            </div>
+        </div>
+
+        <p>当然，任何站点都有它的边界。爱游戏目前主要覆盖中文环境下较常被讨论的游戏，对于极冷门或区域限定的作品，收录可能存在滞后。但作为每天“看一眼”的参照系，它已经足够。更重要的是，它保持了克制的界面——没有自动播放的视频，没有夺目的动态广告，阅读节奏可以由自己控制。</p>
+
+        <p>写这篇笔记时，我特意在多个设备上打开 <a href="https://mainportal-igame.com">爱游戏</a> 做了对照。手机浏览器、平板横屏、电脑分屏，响应式布局都算稳健，字体大小与间距在阅读类页面里属于舒适的那一档。对于经常需要在不同屏幕间切换的人来说，这本身就是一种效率。</p>
+
+        <hr>
+
+        <p style="font-size: 0.95rem; color: #5f5240;">最后，如果你正在寻找一个没有压力、可以随时打开随手翻翻的游戏信息索引，不妨把 <a href="https://mainportal-igame.com">爱游戏</a> 加入你的日常列表。它不承诺惊喜，但常常带来意外的对照与延伸。</p>
+    </article>
+
+    <!-- 脚注 -->
+    <div class="footer-note">
+        <span>📋 一篇笔记 · 2025 · 自由取用</span>
+    </div>
+</div>
+</body>
+</html>
