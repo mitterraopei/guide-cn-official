@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 爱游戏 · 轻量导航页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #fafaf9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        /* 顶部导航区 — 极简线框 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.8rem 0 1.5rem 0;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .top-nav .site-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #1e1e1e;
+            background: none;
+        }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.6rem;
+            font-size: 0.9rem;
+        }
+        .top-nav .nav-links a {
+            color: #3a3a3a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+            padding-bottom: 2px;
+        }
+        .top-nav .nav-links a:hover {
+            border-color: #b0b0b0;
+        }
+        /* hero 区 — 窄幅留白 */
+        .hero {
+            margin-bottom: 3.5rem;
+        }
+        .hero h1 {
+            font-size: 2.0rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+        .hero p {
+            font-size: 1rem;
+            color: #3e3e3e;
+            max-width: 580px;
+        }
+        .hero .sub-meta {
+            margin-top: 1.4rem;
+            font-size: 0.85rem;
+            color: #777;
+            border-left: 4px solid #d4d4d4;
+            padding-left: 1rem;
+        }
+        /* 介绍段落 — 自然承接 */
+        .intro-section {
+            margin: 2rem 0 3rem 0;
+        }
+        .intro-section p {
+            margin-bottom: 1.2rem;
+            color: #2a2a2a;
+        }
+        .intro-section p a {
+            color: #1e1e1e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4c4c4;
+            font-weight: 500;
+        }
+        .intro-section p a:hover {
+            text-decoration-color: #1e1e1e;
+        }
+        /* 场景模块 — 三卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.8rem 0;
+        }
+        .scene-card {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            padding: 1.5rem 1.2rem;
+            border-radius: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: box-shadow 0.25s, border-color 0.25s;
+        }
+        .scene-card:hover {
+            border-color: #c0c0c0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.3px;
+            color: #181818;
+        }
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .scene-card .tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.75rem;
+            background: #f0f0ef;
+            padding: 0.2rem 0.7rem;
+            color: #4a4a4a;
+            letter-spacing: 0.3px;
+        }
+        /* 常见说明 — faq 风格 */
+        .faq-summary {
+            margin: 2.5rem 0 3rem 0;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 2rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.6rem;
+            color: #1e1e1e;
+        }
+        .faq-item {
+            margin-bottom: 1.3rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            color: #222;
+        }
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #525252;
+            padding-left: 0.6rem;
+            border-left: 2px solid #dadada;
+            padding-left: 1rem;
+        }
+        .faq-item .a a {
+            color: #1e1e1e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c4c4c4;
+        }
+        .faq-item .a a:hover {
+            text-decoration-color: #1e1e1e;
+        }
+        /* 底部轻脚注 */
+        .footer-note {
+            font-size: 0.8rem;
+            color: #999;
+            border-top: 1px solid #ececec;
+            padding-top: 2rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.7rem;
+            }
+            .top-nav .nav-links {
+                flex-wrap: wrap;
+                gap: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .faq-item .a {
+                padding-left: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="site-name">爱游戏 · 导航</span>
+        <div class="nav-links">
+            <a href="#intro">关于</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>再次收藏，重新发现</h1>
+        <p>当页面被关闭，当浏览器标签被覆盖，许多好站点便沉入书签深处。<br>这次，我们想让「再次访问」成为一件更自然的事。</p>
+        <div class="sub-meta">
+            从连续关注到场景复用 —— 为长期使用者准备的一份轻量索引
+        </div>
+    </div>
+
+    <!-- 介绍 + 自然链接 -->
+    <div class="intro-section" id="intro">
+        <p>
+            如果你是第二次或第三次打开这个页面，大概已经对 <a href="https://mainsport-igame.com">爱游戏</a> 有了初步印象。
+            一个平台是否值得持续关注，往往取决于它的信息结构是否清晰、更新节奏是否合拍。
+        </p>
+        <p>
+            从内容聚合到互动设计，<a href="https://mainsport-igame.com">爱游戏</a> 更偏向一种克制的呈现方式：把选择权留给使用者，减少不必要的弹窗与跳转。
+            对于习惯收藏、整理标签的用户来说，这种风格反而更容易形成稳定的使用路径。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid" id="scenes">
+        <div class="scene-card">
+            <h3>日常浏览 · 信息沉淀</h3>
+            <p>每天固定时段打开，快速扫读标题与摘要。适合不需要深度搜索、但想保持信息触达的场景。</p>
+            <span class="tag">轻度使用</span>
+        </div>
+        <div class="scene-card">
+            <h3>专题回溯 · 内容整理</h3>
+            <p>当某个话题或系列更新到一定数量，回头翻阅之前的页面，做横向对比或归档。关注点在于内容的可回溯性。</p>
+            <span class="tag">中等频次</span>
+        </div>
+        <div class="scene-card">
+            <h3>工具参考 · 固定入口</h3>
+            <p>将常用功能或数据页面固定在浏览器标签栏，作为日常工作中的一项参考资源。不需要频繁登录或刷新。</p>
+            <span class="tag">收藏向</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要  -->
+    <div class="faq-summary" id="faq">
+        <h2>一些常见说明</h2>
+
+        <div class="faq-item">
+            <div class="q">Q: 为什么选择收藏而非其他方式？</div>
+            <div class="a">对于长期使用者，收藏夹是一种低干扰的访问方式。不需要记住网址，不需要每次搜索，打开书签即可进入 <a href="https://mainsport-igame.com">爱游戏</a> 的页面结构。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 页面的更新频率如何？</div>
+            <div class="a">内容更新遵循相对稳定的节奏，避免突然的大幅改版。对于复用型使用者，这种连续性减少了适应成本。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 是否适合长期固定在标签栏？</div>
+            <div class="a">如果日常会多次回访同一类信息，将 <a href="https://mainsport-igame.com">爱游戏</a> 保留在标签栏是一种高效做法。页面本身采用窄正文与低饱和度配色，长时间开启也不会造成视觉疲劳。</div>
+        </div>
+    </div>
+
+    <!-- 轻量脚注 -->
+    <div class="footer-note">
+        <span>页面结构供参考 · 内容基于公开信息整理 · 访问即代表了解</span>
+    </div>
+</div>
+</body>
+</html>
